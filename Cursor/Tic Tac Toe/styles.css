@@ -1,10 +1,16 @@
+body {
+    background-color: #2a2a2afb;
+}
+
 .main-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Full viewport height */
-    width: 100vw;  /* Full viewport width */
+    height: 100vh;
+    /* Full viewport height */
+    width: 100vw;
+    /* Full viewport width */
 }
 
 .gradient-text {
@@ -15,9 +21,10 @@
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
-    animation: gradient-shift 10s linear infinite;
+    animation: gradient-shift 5s linear infinite;
     text-align: center;
-    margin-bottom: 20px; /* Add a gap below the text */
+    margin-bottom: 20px;
+    /* Add a gap below the text */
 }
 
 @keyframes gradient-shift {
@@ -44,14 +51,74 @@
     flex-direction: row;
 }
 
-.square {
-    height: 100px;
-    width: 100px;
-    border: 1px solid #999;
-}
+
 
 .board-container {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.square {
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+    position: relative;
+    cursor: pointer;
+    background-color: #2a2a2afb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    z-index: 1;
+}
+
+.square::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    background: linear-gradient(
+        217deg,
+        red,
+        yellow,
+        rgb(0, 255, 0),
+        rgb(0, 255, 229),
+        rgb(149, 0, 255),
+        rgb(255, 0, 255),
+        red
+    );
+    background-size: 400% 400%;
+    animation: moveGradient 15s ease infinite;
+    border-radius: 6px;
+    z-index: -1;
+}
+
+.square::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: #2a2a2afb;
+    border-radius: 4px;
+    z-index: -1;
+}
+
+@keyframes moveGradient {
+    0% {
+        background-position: 0% 0%;
+    }
+    25% {
+        background-position: 100% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    75% {
+        background-position: 0% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
 }
