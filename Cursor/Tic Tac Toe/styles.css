@@ -1,19 +1,23 @@
+.main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    width: 100vw;  /* Full viewport width */
+}
+
 .gradient-text {
     font-size: 3rem;
-    /* Adjust font size as needed */
     font-weight: bold;
-    /* Optional: Make the text bold */
     background-image: linear-gradient(90deg, red, yellow, rgb(0, 255, 0), rgb(0, 255, 229), rgb(149, 0, 255), rgb(255, 0, 255), red);
     background-size: 200% 100%;
-    /* Extend the gradient to enable animation */
     background-clip: text;
-    /* Apply the gradient to the text only */
     -webkit-background-clip: text;
-    /* For WebKit browsers */
     color: transparent;
-    /* Make the non-gradient part transparent */
     animation: gradient-shift 10s linear infinite;
     text-align: center;
+    margin-bottom: 20px; /* Add a gap below the text */
 }
 
 @keyframes gradient-shift {
@@ -25,4 +29,29 @@
     100% {
         background-position: 0 0;
     }
+}
+
+.game-board {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.board-row {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+}
+
+.square {
+    height: 100px;
+    width: 100px;
+    border: 1px solid #999;
+}
+
+.board-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
